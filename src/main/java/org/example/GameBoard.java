@@ -13,6 +13,13 @@ public class GameBoard {
         this.height = height;
         board = new char[height][width];
 
+        // Initialize all positions with 'O'
+        for (int i = 1; i < height - 1; i++) {
+            for (int j = 1; j < width - 1; j++) {
+                board[i][j] = 'O';
+            }
+        }
+
         // Set the walls
         for (int i = 0; i < width; i++) {
             board[0][i] = '#';
@@ -49,7 +56,7 @@ public class GameBoard {
         }
 
         // Update the board and player position
-        board[playerPos[0]][playerPos[1]] = ' ';
+        board[playerPos[0]][playerPos[1]] = 'O';
         board[x][y] = 'X';
         playerPos[0] = x;
         playerPos[1] = y;
